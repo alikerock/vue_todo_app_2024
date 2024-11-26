@@ -6,6 +6,9 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
  <div id="app" class="container">
   <h1>Vue Todo App</h1>
+  <BFormInput
+        placeholder="할일을 입력하세요"
+      />
  </div>
 </template>
 
