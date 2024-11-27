@@ -31,7 +31,7 @@ const todoDelete = ({id})=>{
 </script>
 
 <template>
- <div id="app" class="container">
+ <div class="container">
   <h1>Vue Todo App</h1>
   <!-- 
   입력 내용이 실시간 반영
