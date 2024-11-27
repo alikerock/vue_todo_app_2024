@@ -1,11 +1,16 @@
 <script setup>
+import { ref } from 'vue';
+
 const props = defineProps({
   todo: {
-    type: String,
+    type: Object,
     required: true,
   },
 })
 const emit = defineEmits(['toggle-checkbox'])
+
+const isChecked  = ref(props.todo.checked);
+
 const toggleCheckbox = (e)=>{
 
   emit('toggle-checkbox',{
@@ -21,13 +26,13 @@ const toggleCheckbox = (e)=>{
 
     <BFormCheckbox
       id="checkbox-1"
-      v-model="status"
+      v-model="isChecked"
       name="checkbox-1"
       value="accepted"
       unchecked-value="not_accepted"
       @change="toggleCheckbox"      
     >
-      <span :class="todo.checked && 'muted'">{{todo.title}}</span>
+      <span :class="{ 'muted': todo.checked }">{{todo.title}}</span>
     </BFormCheckbox>
 
   </div>
