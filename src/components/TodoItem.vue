@@ -28,12 +28,14 @@ const toggleCheckbox = (e)=>{
     checked:e.target.checked
   })
 }
+const  clickDelete = ()=> {
+  emit('click-delete', props.todo.id);
+}
 
 </script>
 
 <template>
-  <div>
-
+  <div class="d-flex gap-1 align-items-center">
     <BFormCheckbox
       :id="`checkbox-${todo.id}`"
       v-model="isChecked"
@@ -45,7 +47,7 @@ const toggleCheckbox = (e)=>{
       <!-- Vue에서 권장하는 동적 클래스 바인딩 방식으로 변경 -->
       <span :class="{ muted: isChecked }">{{ todo.title }}</span>
     </BFormCheckbox>
-
+    <BButton variant="danger" @click="clickDelete">Button</BButton>
   </div>
 </template>
 

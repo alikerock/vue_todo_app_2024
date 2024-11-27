@@ -23,10 +23,18 @@ const toggleCheckbox = ({id,checked})=>{
   console.log(id, checked, todos.values);
 }
 
+const deleteTodo = (id)=> {
+  if (window.confirm('정말 삭제할까요')) {
+    const index = todos.findIndex(todo => todo.id === id);
+    todos.splice(index, 1);
+  }
+}
+
+
 </script>
 
 <template>
- <div id="app" class="container">
+ <div class="container">
   <h1>Vue Todo App</h1>
   <!-- 
   입력 내용이 실시간 반영
@@ -40,6 +48,7 @@ const toggleCheckbox = ({id,checked})=>{
     :key="todo.id" 
     :todo="todo"
     @toggle-checkbox="toggleCheckbox"
+    @click-delete = "deleteTodo"
   />
 
  </div>
